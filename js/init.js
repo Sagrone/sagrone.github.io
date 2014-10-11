@@ -72,7 +72,7 @@ $(function () {
 
   /* Signup form */
 
-  $('#signupForm').bootstrapValidator({
+  $('#mc-embedded-subscribe-form').bootstrapValidator({
     message: 'This value is not valid',
     feedbackIcons: {
       valid: 'fa fa-check',
