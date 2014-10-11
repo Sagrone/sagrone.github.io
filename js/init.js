@@ -1,183 +1,168 @@
 $(window).load(function () {
-	"use strict";
-	$('#status').fadeOut();
-	$('#preloader').delay(350).fadeOut('slow');
-	$('body').delay(350).css({
-		'overflow': 'visible'
-	});
+  "use strict";
+  $('#status').fadeOut();
+  $('#preloader').delay(350).fadeOut('slow');
+  $('body').delay(350).css({
+    'overflow': 'visible'
+  });
 });
 $(function () {
-	"use strict";
+  "use strict";
 
-	/* ---------------------------------------------------------
-	 * Background (Backstretch)
-	 */
+  /* ---------------------------------------------------------
+   * Background (Backstretch)
+   */
 
-	$.backstretch([
-		"img/background/1.jpg",
-		"img/background/2.jpg",
-		"img/background/3.jpg"
-	], {duration: 3800, fade: 1500});
+  $.backstretch([
+    "img/background/1.jpg",
+    "img/background/2.jpg",
+    "img/background/3.jpg"
+  ], {duration: 3800, fade: 1500});
 
-	/* ---------------------------------------------------------
-	 * WOW
-	 */
+  /* ---------------------------------------------------------
+   * WOW
+   */
 
-	new WOW().init();
+  new WOW().init();
 
-	/* ---------------------------------------------------------
-	 * Scroll arrow
-	 */
+  /* ---------------------------------------------------------
+   * Scroll arrow
+   */
 
-	$("#scroll").click(function () {
-	 	if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-	 		var target = $(this.hash);
-	 		target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-	 		if (target.length) {
-	 			$('html,body').animate({
-	 				scrollTop: target.offset().top
-	 			}, 1200);
-	 			return false;
-	 		}
-	 	}
-	 });
+  $("#scroll").click(function () {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1200);
+        return false;
+      }
+    }
+   });
 
-	/* ---------------------------------------------------------
-	 * Countdown
-	 */
+  /* ---------------------------------------------------------
+   * Countdown
+   */
 
-	var description = {
-		weeks: "weeks",
-		days: "days",
-		hours: "hours",
-		minutes: "minutes",
-		seconds: "seconds"
-	};
+  var description = {
+    weeks: "weeks",
+    days: "days",
+    hours: "hours",
+    minutes: "minutes",
+    seconds: "seconds"
+  };
 
-	// year/month/day
-	$('#countdown').countdown('2015/2/1', function (event) {
-		$(this).html(event.strftime(
-			'<div class="countdown-section"><b>%w</b> <span>' + description.weeks + '</span> </div>' +
-			'<div class="countdown-section"><b>%d</b> <span>' + description.days + '</span> </div>' +
-			'<div class="countdown-section"><b>%H</b> <span>' + description.hours + '</span> </div>' +
-			'<div class="countdown-section"><b>%M</b> <span>' + description.minutes + '</span> </div>' +
-			'<div class="countdown-section"><b>%S</b> <span>' + description.seconds + '</span> </div>'
-		));
-	});
+  // year/month/day
+  $('#countdown').countdown('2015/2/1', function (event) {
+    $(this).html(event.strftime(
+      '<div class="countdown-section"><b>%w</b> <span>' + description.weeks + '</span> </div>' +
+      '<div class="countdown-section"><b>%d</b> <span>' + description.days + '</span> </div>' +
+      '<div class="countdown-section"><b>%H</b> <span>' + description.hours + '</span> </div>' +
+      '<div class="countdown-section"><b>%M</b> <span>' + description.minutes + '</span> </div>' +
+      '<div class="countdown-section"><b>%S</b> <span>' + description.seconds + '</span> </div>'
+    ));
+  });
 
 
-	/* ---------------------------------------------------------
-	 * Form validation
-	 */
+  /* ---------------------------------------------------------
+   * Form validation
+   */
 
-	/* Signup form */
+  /* Signup form */
 
-	$('#signupForm').bootstrapValidator({
-		message: 'This value is not valid',
-		feedbackIcons: {
-			valid: 'fa fa-check',
-			invalid: 'fa fa-times',
-			validating: 'fa fa-refresh'
-		},
-		submitHandler: function (validator, form, submitButton) {
-			var l = Ladda.create(submitButton[0]),
-				btnText = submitButton.children(".ladda-label");
+  $('#signupForm').bootstrapValidator({
+    message: 'This value is not valid',
+    feedbackIcons: {
+      valid: 'fa fa-check',
+      invalid: 'fa fa-times',
+      validating: 'fa fa-refresh'
+    },
+    fields: {
+      email: {
+        validators: {
+          notEmpty: {
+            message: 'Email cannot be empty'
+          },
+          emailAddress: {
+            message: 'The input is not a valid email address'
+          }
+        }
+      }
+    }
+  });
 
-			l.start();
-			btnText.html("Signing up...");
+  /* Contact form */
 
-			$.get(form.attr('action'), form.serialize(), function(result) {
-				btnText.html(result.message);
-			}, 'json')
-			.always(function() {
-				l.stop();
-				validator.disableSubmitButtons(true);
-			});
-		},
-		fields: {
-			email: {
-				validators: {
-					notEmpty: {
-						message: 'Email cannot be empty'
-					},
-					emailAddress: {
-						message: 'The input is not a valid email address'
-					}
-				}
-			}
-		}
-	});
+  $('#contactForm').bootstrapValidator({
+    fields: {
+      name: {
+        validators: {
+          notEmpty: {
+            message: 'Name cannot be empty'
+          },
+          stringLength: {
+            min: 6,
+            max: 30,
+            message: 'Name must be more than 6 and less than 30 characters long'
+          },
+          regexp: {
+            regexp: /^[a-zA-Z\s]+$/,
+            message: 'Name can only consist alphabetical characters'
+          }
+        }
+      },
+      contactEmail: {
+        validators: {
+          notEmpty: {
+            message: 'Email cannot be empty'
+          },
+          emailAddress: {
+            message: 'The input is not a valid email address'
+          }
+        }
+      },
+      message: {
+        validators: {
+          notEmpty: {
+            message: 'Message cannot be empty'
+          }
+        }
+      }
+    },
+    feedbackIcons: {
+      valid: 'fa fa-check',
+      invalid: 'fa fa-times',
+      validating: 'fa fa-refresh'
+    },
+    submitHandler: function (validator, form, submitButton) {
+      var l = Ladda.create(submitButton[0]),
+        btnText = submitButton.children(".ladda-label");
 
-	/* Contact form */
+      l.start();
+      btnText.html("Sending...");
 
-	$('#contactForm').bootstrapValidator({
-		fields: {
-			name: {
-				validators: {
-					notEmpty: {
-						message: 'Name cannot be empty'
-					},
-					stringLength: {
-						min: 6,
-						max: 30,
-						message: 'Name must be more than 6 and less than 30 characters long'
-					},
-					regexp: {
-						regexp: /^[a-zA-Z\s]+$/,
-						message: 'Name can only consist alphabetical characters'
-					}
-				}
-			},
-			contactEmail: {
-				validators: {
-					notEmpty: {
-						message: 'Email cannot be empty'
-					},
-					emailAddress: {
-						message: 'The input is not a valid email address'
-					}
-				}
-			},
-			message: {
-				validators: {
-					notEmpty: {
-						message: 'Message cannot be empty'
-					}
-				}
-			}
-		},
-		feedbackIcons: {
-			valid: 'fa fa-check',
-			invalid: 'fa fa-times',
-			validating: 'fa fa-refresh'
-		},
-		submitHandler: function (validator, form, submitButton) {
-			var l = Ladda.create(submitButton[0]),
-				btnText = submitButton.children(".ladda-label");
+      $.post(form.attr('action'), form.serialize(), function(result) {
+        if(result.sent){
+          btnText.html("Sent!");
+        }
+        else{
+          btnText.html("Error!");
+        }
 
-			l.start();
-			btnText.html("Sending...");
+        // Reset form after 5s
+        setTimeout(function() {
+          btnText.html("Submit");
+          $(form[0])[0].reset();
+          validator.resetForm();
+        }, 5000);
 
-			$.post(form.attr('action'), form.serialize(), function(result) {
-				if(result.sent){
-					btnText.html("Sent!");
-				}
-				else{
-					btnText.html("Error!");
-				}
-
-				// Reset form after 5s
-				setTimeout(function() {
-					btnText.html("Submit");
-					$(form[0])[0].reset();
-					validator.resetForm();
-				}, 5000);
-
-			}, 'json')
-			.always(function() {
-				l.stop();
-				validator.disableSubmitButtons(true);
-			});
-		},
-	});
+      }, 'json')
+      .always(function() {
+        l.stop();
+        validator.disableSubmitButtons(true);
+      });
+    },
+  });
 });
