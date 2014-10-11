@@ -18,17 +18,17 @@ $(function () {
 		"img/background/2.jpg",
 		"img/background/3.jpg"
 	], {duration: 3800, fade: 1500});
-	
+
 	/* ---------------------------------------------------------
 	 * WOW
 	 */
-	
+
 	new WOW().init();
-	
+
 	/* ---------------------------------------------------------
 	 * Scroll arrow
 	 */
-	
+
 	$("#scroll").click(function () {
 	 	if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
 	 		var target = $(this.hash);
@@ -53,7 +53,7 @@ $(function () {
 		minutes: "minutes",
 		seconds: "seconds"
 	};
-	
+
 	// year/month/day
 	$('#countdown').countdown('2015/6/12', function (event) {
 		$(this).html(event.strftime(
@@ -82,15 +82,15 @@ $(function () {
 		submitHandler: function (validator, form, submitButton) {
 			var l = Ladda.create(submitButton[0]),
 				btnText = submitButton.children(".ladda-label");
-			
+
 			l.start();
 			btnText.html("Signing up...");
-			
-			$.get(form.attr('action'), form.serialize(), function(result) { 
-				btnText.html(result.message);							
+
+			$.get(form.attr('action'), form.serialize(), function(result) {
+				btnText.html(result.message);
 			}, 'json')
-			.always(function() { 
-				l.stop(); 
+			.always(function() {
+				l.stop();
 				validator.disableSubmitButtons(true);
 			});
 		},
@@ -154,10 +154,10 @@ $(function () {
 		submitHandler: function (validator, form, submitButton) {
 			var l = Ladda.create(submitButton[0]),
 				btnText = submitButton.children(".ladda-label");
-			
+
 			l.start();
 			btnText.html("Sending...");
-			
+
 			$.post(form.attr('action'), form.serialize(), function(result) {
 				if(result.sent){
 					btnText.html("Sent!");
@@ -165,17 +165,17 @@ $(function () {
 				else{
 					btnText.html("Error!");
 				}
-				
+
 				// Reset form after 5s
 				setTimeout(function() {
 					btnText.html("Submit");
 					$(form[0])[0].reset();
 					validator.resetForm();
 				}, 5000);
-				
+
 			}, 'json')
-			.always(function() { 
-				l.stop(); 
+			.always(function() {
+				l.stop();
 				validator.disableSubmitButtons(true);
 			});
 		},
