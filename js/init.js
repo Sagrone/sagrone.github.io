@@ -79,21 +79,6 @@ $(function () {
       invalid: 'fa fa-times',
       validating: 'fa fa-refresh'
     },
-    submitHandler: function (validator, form, submitButton) {
-      var l = Ladda.create(submitButton[0]),
-        btnText = submitButton.children(".ladda-label");
-
-      l.start();
-      btnText.html("Signing up...");
-
-      $.get(form.attr('action'), form.serialize(), function(result) {
-        btnText.html(result.message);
-      }, 'json')
-      .always(function() {
-        l.stop();
-        validator.disableSubmitButtons(true);
-      });
-    },
     fields: {
       email: {
         validators: {
