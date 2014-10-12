@@ -137,20 +137,13 @@ $(function () {
       validating: 'fa fa-refresh'
     },
     submitHandler: function (validator, form, submitButton) {
-      var l = Ladda.create(submitButton[0]),
-        btnText = submitButton.children(".ladda-label");
+      var l = Ladda.create(submitButton[0]);
+      var btnText = submitButton.children(".ladda-label");
 
       l.start();
       btnText.html("Sending...");
 
       $.post(form.attr('action'), form.serialize(), function(result) {
-        if(result.sent){
-          btnText.html("Sent!");
-        }
-        else{
-          btnText.html("Error!");
-        }
-
         // Reset form after 5s
         setTimeout(function() {
           btnText.html("Submit");
@@ -162,6 +155,7 @@ $(function () {
       .always(function() {
         l.stop();
         validator.disableSubmitButtons(true);
+        btnText.html("Sent!");
       });
     },
   });
