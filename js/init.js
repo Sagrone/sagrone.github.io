@@ -47,11 +47,11 @@ $(function () {
    */
 
   var description = {
-    weeks: "weeks",
-    days: "days",
-    hours: "hours",
-    minutes: "minutes",
-    seconds: "seconds"
+    weeks: "settimane",
+    days: "giorni",
+    hours: "ore",
+    minutes: "minuti",
+    seconds: "secondi"
   };
 
   // year/month/day
