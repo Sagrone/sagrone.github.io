@@ -113,7 +113,7 @@ $(function () {
           }
         }
       },
-      contactEmail: {
+      email: {
         validators: {
           notEmpty: {
             message: 'Email cannot be empty'
