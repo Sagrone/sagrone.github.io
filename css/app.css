@@ -621,8 +621,8 @@ form.signup button.btn {
 /* About */
 
 #about{
-	background: #ededed;
-	color: #626262;
+	background: #F0E4D3;
+	color: #3A2003;
 }
 
 #about h1,
@@ -631,7 +631,7 @@ form.signup button.btn {
 #about h4,
 #about h5,
 #about h6{
-	color: #626262;
+	color: #3A2003;
 }
 
 
