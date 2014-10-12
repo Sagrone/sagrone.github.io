@@ -73,7 +73,7 @@ $(function () {
   /* Signup form */
 
   $('#mc-embedded-subscribe-form').bootstrapValidator({
-    message: 'This value is not valid',
+    message: 'Il valore non è valido',
     feedbackIcons: {
       valid: 'fa fa-check',
       invalid: 'fa fa-times',
@@ -83,10 +83,10 @@ $(function () {
       email: {
         validators: {
           notEmpty: {
-            message: 'Email cannot be empty'
+            message: 'Indirizzo email non può essere vuoto'
           },
           emailAddress: {
-            message: 'The input is not a valid email address'
+            message: 'Il campo email non è valido'
           }
         }
       }
@@ -100,33 +100,33 @@ $(function () {
       name: {
         validators: {
           notEmpty: {
-            message: 'Name cannot be empty'
+            message: 'Nome non può essere vuoto'
           },
           stringLength: {
             min: 6,
             max: 30,
-            message: 'Name must be more than 6 and less than 30 characters long'
+            message: 'Il nome deve essere più di 6 e meno di 30 caratteri'
           },
           regexp: {
             regexp: /^[a-zA-Z\s]+$/,
-            message: 'Name can only consist alphabetical characters'
+            message: 'Nome può avere solo caratteri alfabetici'
           }
         }
       },
       email: {
         validators: {
           notEmpty: {
-            message: 'Email cannot be empty'
+            message: 'Indirizzo email non può essere vuoto'
           },
           emailAddress: {
-            message: 'The input is not a valid email address'
+            message: 'Il campo email non è valido'
           }
         }
       },
       message: {
         validators: {
           notEmpty: {
-            message: 'Message cannot be empty'
+            message: 'Messaggio non può essere vuoto'
           }
         }
       }
@@ -143,21 +143,21 @@ $(function () {
       function resetForm() {
         // Reset form after 5s
         setTimeout(function() {
-          btnText.html("Submit");
+          btnText.html("Invia");
           $(form[0])[0].reset();
           validator.resetForm();
         }, 5000);
       }
 
       l.start();
-      btnText.html("Sending...");
+      btnText.html("Invio...");
 
       $.post(form.attr('action'), form.serialize(), function(result) {
       }, 'json')
       .always(function() {
         l.stop();
         validator.disableSubmitButtons(true);
-        btnText.html("Sent!");
+        btnText.html("Inviato!");
         resetForm();
       });
     },
