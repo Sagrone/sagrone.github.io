@@ -140,22 +140,25 @@ $(function () {
       var l = Ladda.create(submitButton[0]);
       var btnText = submitButton.children(".ladda-label");
 
-      l.start();
-      btnText.html("Sending...");
-
-      $.post(form.attr('action'), form.serialize(), function(result) {
+      function resetForm() {
         // Reset form after 5s
         setTimeout(function() {
           btnText.html("Submit");
           $(form[0])[0].reset();
           validator.resetForm();
         }, 5000);
+      }
 
+      l.start();
+      btnText.html("Sending...");
+
+      $.post(form.attr('action'), form.serialize(), function(result) {
       }, 'json')
       .always(function() {
         l.stop();
         validator.disableSubmitButtons(true);
         btnText.html("Sent!");
+        resetForm();
       });
     },
   });
