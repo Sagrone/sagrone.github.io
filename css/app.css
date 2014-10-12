@@ -705,9 +705,9 @@ form.signup button.btn {
 /* Team */
 
 .team-member-container{
-  max-width: 250px;
-  display: inline-block;
-  margin: 20px 0;
+	max-width: 333px;
+	display: inline-block;
+	margin: 20px 0;
 }
 
 .team-member-container:first-child{
