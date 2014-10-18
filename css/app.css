@@ -634,6 +634,10 @@ form.signup button.btn {
 	color: #3A2003;
 }
 
+#about .section-title-border {
+  width: 160px;
+}
+
 
 .feature-box-container{
 	margin: 60px 0;
@@ -645,7 +649,7 @@ form.signup button.btn {
 
 .feature-box {
 	text-align: center;
-	background: #e4e4e4;
+	background: #fcf6ee;
 }
 
 .feature-box .icon {
@@ -653,7 +657,7 @@ form.signup button.btn {
 	height: 55px;
 	color: #fff;
 	position: relative;
-	background: #bbbcbc;
+	background: #3A2003;
 	margin: 35px auto 20px;
 }
 
@@ -666,7 +670,7 @@ form.signup button.btn {
 	height: 0;
 	border-left: 50px solid transparent;
 	border-right: 50px solid transparent;
-	border-bottom: 25px solid #bbbcbc;
+	border-bottom: 25px solid #3A2003;
 }
 
 .feature-box .icon:after {
@@ -678,7 +682,7 @@ form.signup button.btn {
 	height: 0;
 	border-left: 50px solid transparent;
 	border-right: 50px solid transparent;
-	border-top: 25px solid #bbbcbc;
+	border-top: 25px solid #3A2003;
 }
 
 .feature-box .icon i {
