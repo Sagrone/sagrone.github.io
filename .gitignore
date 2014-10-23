@@ -1,2 +1,5 @@
 # Ignore work design files.
 *.xcf
+
+# Ignore node modules.
+/node_modules/*
