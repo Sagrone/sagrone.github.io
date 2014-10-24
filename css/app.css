@@ -622,7 +622,7 @@ form.signup button.btn {
 
 #about{
 	background: #F0E4D3;
-	color: #3A2003;
+	color: #3a2003;
 }
 
 #about h1,
@@ -631,7 +631,7 @@ form.signup button.btn {
 #about h4,
 #about h5,
 #about h6{
-	color: #3A2003;
+	color: #3a2003;
 }
 
 #about .section-title-border {
@@ -657,7 +657,7 @@ form.signup button.btn {
 	height: 55px;
 	color: #fff;
 	position: relative;
-	background: #3A2003;
+	background: #3a2003;
 	margin: 35px auto 20px;
 }
 
@@ -670,7 +670,7 @@ form.signup button.btn {
 	height: 0;
 	border-left: 50px solid transparent;
 	border-right: 50px solid transparent;
-	border-bottom: 25px solid #3A2003;
+	border-bottom: 25px solid #3a2003;
 }
 
 .feature-box .icon:after {
@@ -682,7 +682,7 @@ form.signup button.btn {
 	height: 0;
 	border-left: 50px solid transparent;
 	border-right: 50px solid transparent;
-	border-top: 25px solid #3A2003;
+	border-top: 25px solid #3a2003;
 }
 
 .feature-box .icon i {
@@ -771,7 +771,7 @@ form.signup button.btn {
 /* Contact */
 
 #contact{
-	background: #3A2003;
+	background: #3a2003;
 }
 
 .list-contacts {
