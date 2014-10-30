@@ -475,7 +475,7 @@ form.signup button.btn {
   margin: 30px 0 10px;
 }
 
-#signupForm .form-control-feedback {
+#mc_embed_signup .form-control-feedback {
   visibility: hidden;
 }
 
@@ -597,11 +597,11 @@ form.signup button.btn {
     margin: 45px 0 10px;
   }
 
-  #signupForm .form-control-feedback {
+  #mc_embed_signup .form-control-feedback {
     visibility: visible;
   }
 
-  #signupForm  .form-group {
+  #mc_embed_signup  .form-group {
     vertical-align: top;
   }
 
