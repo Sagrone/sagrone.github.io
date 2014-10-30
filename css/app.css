@@ -593,8 +593,8 @@ form.signup button.btn {
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .heading {
-    font-size: 50px;
-    margin: 45px 0 10px;
+    font-size: 40px;
+    margin: 15px 0 10px;
   }
 
   #mc_embed_signup .form-control-feedback {
@@ -850,7 +850,7 @@ p.copyright {
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   footer {
-    margin-top: 70px;
+    margin-top: 50px;
   }
 
   footer .pull-left {
