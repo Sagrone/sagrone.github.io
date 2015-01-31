@@ -3,3 +3,8 @@
 
 # Ignore node modules.
 /node_modules/*
+
+# Ignore bundle files.
+.bundle/
+bin/
+vendor/
