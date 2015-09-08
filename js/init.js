@@ -54,17 +54,6 @@ $(function () {
     seconds: "secondi"
   };
 
-  // year/month/day
-  $('#countdown').countdown('2015/9/1', function (event) {
-    $(this).html(event.strftime(
-      '<div class="countdown-section"><b>%w</b> <span>' + description.weeks + '</span> </div>' +
-      '<div class="countdown-section"><b>%d</b> <span>' + description.days + '</span> </div>' +
-      '<div class="countdown-section"><b>%H</b> <span>' + description.hours + '</span> </div>' +
-      '<div class="countdown-section"><b>%M</b> <span>' + description.minutes + '</span> </div>' +
-      '<div class="countdown-section"><b>%S</b> <span>' + description.seconds + '</span> </div>'
-    ));
-  });
-
 
   /* ---------------------------------------------------------
    * Form validation
